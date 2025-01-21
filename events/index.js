@@ -1,4 +1,4 @@
-const EventEmitter = require("events");
+const { EventEmitter } = require("./events");
 
 const event = new EventEmitter();
 
@@ -12,3 +12,8 @@ event.on("test", fn);
 event.once("test", fn);
 
 event.emit("test", 1, 2);
+// event.off("test", fn);
+event.removeListener("test", fn);
+event.emit("test", 3, 4);
+event.removeListener("test", fn);
+event.emit("test", 5, 6);
